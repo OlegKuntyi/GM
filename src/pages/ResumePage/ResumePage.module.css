@@ -1,0 +1,130 @@
+/* Загальні стилі контейнера */
+.container {
+  position: relative;
+  padding-bottom: 60px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Горизонтальний контейнер для меню секцій */
+.iconBar {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+ 
+  white-space: nowrap;
+  position: relative;
+
+}
+
+.iconBar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Стилі для кожного елемента меню */
+.iconContainer {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transform-origin: center center;
+  position: relative;
+  scroll-snap-align: center;
+  
+}
+
+/* Неактивний елемент має стандартний розмір */
+.inactive {
+  opacity: 0.6;
+  transform: scale(1);
+}
+
+/* Активний елемент (в центрі) збільшується та має менший шрифт для підпису */
+.active {
+  transform: scale(1.5) translateY(-10px);
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Стилі для самої іконки */
+.icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Підпис під іконкою */
+.iconLabel {
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Для активного елемента зменшуємо розмір шрифту підпису, щоб текст вміщувався */
+.iconContainer.active .iconLabel {
+  font-size: 10px;
+}
+
+/* Стилі для навігаційних кнопок */
+.navButtonContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.navButton {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.navButton:hover {
+  opacity: 1;
+}
+
+/* Стилі для завантаження */
+.loading {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+}
+
+/* Додаткові стилі для адаптації на мобільних пристроях */
+@media (max-width: 600px) {
+  .iconBar {
+    gap: 10px;
+    justify-content: center;
+  }
+  .iconContainer {
+    min-width: 60px;
+  }
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+  .iconLabel {
+    font-size: 10px;
+  }
+}
